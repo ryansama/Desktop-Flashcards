@@ -18,12 +18,17 @@ namespace Desktop_Flashcards
         public Form1()
         {
             InitializeComponent();
-
             // Initialize MaterialSkinManager
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            //TODO add fade effect when showing and hiding
+            pictureBox1.Show();
         }
     }
 }
