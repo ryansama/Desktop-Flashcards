@@ -14,16 +14,22 @@ namespace Desktop_Flashcards
 {
     public partial class Form1 : MaterialForm
     {
+        //Material skin from Ignace Maes
         private readonly MaterialSkinManager materialSkinManager;
+
         public Form1()
         {
             InitializeComponent();
-            // Initialize MaterialSkinManager
+
+            // Initialize MaterialSkinManager with theme and color scheme
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Green600, Primary.Green700, Primary.Green200, Accent.Red100, TextShade.WHITE);
-            populatePanel();
+
+            //populate the radio button panel under 'Create' tab
+            populatePanel(flowLayoutPanel1);
+
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
@@ -33,11 +39,27 @@ namespace Desktop_Flashcards
             pictureBox1.Show();
         }
 
+        /// <summary>
+        /// Method to start events when switching between tabs.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void materialTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(materialTabControl1.SelectedIndex == 0)
+            int tab = materialTabControl1.SelectedIndex;
+            switch (tab)
             {
-                populatePanel();//update panel when entering the 'create' tab
+                case 0:
+                    flowLayoutPanel1.Controls.Clear();
+                    populatePanel(flowLayoutPanel1);//update panel when entering the 'create' tab
+                    break;
+                case 1:
+                    flowLayoutPanel2.Controls.Clear();
+                    populatePanel(flowLayoutPanel2);//update panel when entering the 'read' tab
+                    break;
+                default:
+                    MessageBox.Show("Default switch case");
+                    break;
             }
             
         }
@@ -45,9 +67,10 @@ namespace Desktop_Flashcards
         /// <summary>
         /// Populates the panel containing radio buttons in 'Create' tab.
         /// </summary>
-        private void populatePanel()
+        private void populatePanel(FlowLayoutPanel panel)
         {
             MaterialRadioButton test;
+
             for (int i = 0; i < 20; i++)
             {
                 test = new MaterialRadioButton();
@@ -65,7 +88,7 @@ namespace Desktop_Flashcards
                 test.TabStop = true;
                 test.Text = "Card Group " + i.ToString() + "\t";
                 test.UseVisualStyleBackColor = true;
-                flowLayoutPanel1.Controls.Add(test);
+                panel.Controls.Add(test);
             }
         }
     }
