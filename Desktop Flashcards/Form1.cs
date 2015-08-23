@@ -9,17 +9,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using System.IO;
 
 namespace Desktop_Flashcards
 {
     public partial class Form1 : MaterialForm
     {
+
+        string cardDir = "";//full path of the 'cards' directory
+
         //Material skin from Ignace Maes
         private readonly MaterialSkinManager materialSkinManager;
 
+        /// <summary>
+        /// Method to run all code upon startup.
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
+
+            Directory.CreateDirectory("cards");//if the cards/ directory is not present, create one
+            this.cardDir = getCardsDirectory();//set the global variable to the full path
+
 
             // Initialize MaterialSkinManager with theme and color scheme
             materialSkinManager = MaterialSkinManager.Instance;
@@ -30,6 +41,17 @@ namespace Desktop_Flashcards
             //populate the radio button panel under 'Create' tab
             populatePanel(flowLayoutPanel1);
 
+        }
+
+        /// <summary>
+        /// Get the directory of the program and return 
+        /// a string containing the "\cards" directory.
+        /// </summary>
+        /// <returns></returns>
+        private string getCardsDirectory()
+        {
+            string path = Directory.GetCurrentDirectory() + "\\cards\\";
+            return path;
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
