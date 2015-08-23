@@ -54,13 +54,6 @@ namespace Desktop_Flashcards
             return path;
         }
 
-        private void materialRaisedButton1_Click(object sender, EventArgs e)
-        {
-            //TODO add fade effect when showing and hiding the alert
-            //TODO add shadow to the alert
-            pictureBox1.Show();
-        }
-
         /// <summary>
         /// Method to start events when switching between tabs.
         /// </summary>
@@ -112,6 +105,15 @@ namespace Desktop_Flashcards
                 test.UseVisualStyleBackColor = true;
                 panel.Controls.Add(test);
             }
+        }
+
+        /// <summary>
+        /// Events when the 'Create Card' button is clicked.
+        /// </summary>
+        private void createCardBtn_Click(object sender, EventArgs e)
+        {
+            //TODO add fade-in and fade-out effect to the alert
+            cardCreatedAlert.Show();
         }
     }
 }

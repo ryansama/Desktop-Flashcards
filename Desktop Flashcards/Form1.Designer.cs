@@ -33,8 +33,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.cardCreatedAlert = new System.Windows.Forms.PictureBox();
+            this.createCardBtn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -47,7 +47,7 @@
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardCreatedAlert)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,8 +72,8 @@
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.materialLabel1);
             this.tabPage1.Controls.Add(this.flowLayoutPanel1);
-            this.tabPage1.Controls.Add(this.pictureBox1);
-            this.tabPage1.Controls.Add(this.materialRaisedButton1);
+            this.tabPage1.Controls.Add(this.cardCreatedAlert);
+            this.tabPage1.Controls.Add(this.createCardBtn);
             this.tabPage1.Controls.Add(this.materialSingleLineTextField2);
             this.tabPage1.Controls.Add(this.materialSingleLineTextField1);
             this.tabPage1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -107,29 +107,29 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(511, 143);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
-            // pictureBox1
+            // cardCreatedAlert
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(563, 230);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
+            this.cardCreatedAlert.Image = ((System.Drawing.Image)(resources.GetObject("cardCreatedAlert.Image")));
+            this.cardCreatedAlert.Location = new System.Drawing.Point(563, 230);
+            this.cardCreatedAlert.Name = "cardCreatedAlert";
+            this.cardCreatedAlert.Size = new System.Drawing.Size(140, 50);
+            this.cardCreatedAlert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.cardCreatedAlert.TabIndex = 2;
+            this.cardCreatedAlert.TabStop = false;
+            this.cardCreatedAlert.Visible = false;
             // 
-            // materialRaisedButton1
+            // createCardBtn
             // 
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(576, 286);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(127, 40);
-            this.materialRaisedButton1.TabIndex = 1;
-            this.materialRaisedButton1.Text = "Create Card";
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
-            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            this.createCardBtn.Depth = 0;
+            this.createCardBtn.Location = new System.Drawing.Point(576, 286);
+            this.createCardBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.createCardBtn.Name = "createCardBtn";
+            this.createCardBtn.Primary = true;
+            this.createCardBtn.Size = new System.Drawing.Size(127, 40);
+            this.createCardBtn.TabIndex = 1;
+            this.createCardBtn.Text = "Create Card";
+            this.createCardBtn.UseVisualStyleBackColor = true;
+            this.createCardBtn.Click += new System.EventHandler(this.createCardBtn_Click);
             // 
             // materialSingleLineTextField2
             // 
@@ -266,7 +266,7 @@
             this.materialTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardCreatedAlert)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
@@ -281,10 +281,10 @@
         private System.Windows.Forms.TabPage tabPage5;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private MaterialSkin.Controls.MaterialRaisedButton createCardBtn;
         private System.Windows.Forms.TabPage tabPage3;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox cardCreatedAlert;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
