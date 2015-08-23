@@ -60,6 +60,7 @@ namespace Desktop_Flashcards
         /// <param name="e"></param>
         private void materialTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             int tab = materialTabControl1.SelectedIndex;
             switch (tab)
             {
@@ -113,6 +114,22 @@ namespace Desktop_Flashcards
         {
             //TODO add fade-in and fade-out effect to the alert
             cardCreatedAlert.Show();
+        }
+
+        /// <summary>
+        /// Events when the 'Create Card Group' button is clicked.
+        /// </summary>
+        private void createGroupBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Events when the 'Delete Card Group' button is clicked.
+        /// </summary>
+        private void deleteGroupBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
