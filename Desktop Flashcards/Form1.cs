@@ -31,7 +31,6 @@ namespace Desktop_Flashcards
             Directory.CreateDirectory("cards");//if the cards/ directory is not present, create one
             this.cardDir = getCardsDirectory();//set the global variable to the full path
 
-
             // Initialize MaterialSkinManager with theme and color scheme
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
@@ -44,7 +43,7 @@ namespace Desktop_Flashcards
         }
 
         /// <summary>
-        /// Get the directory of the program and return 
+        /// Get the directory of the .exe and return 
         /// a string containing the "\cards" directory.
         /// </summary>
         /// <returns></returns>

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 /// strings for two sides of the card. 
 /// Authors: Ryan Samarajeewa, Andy Yang
 /// </summary>
-namespace Flashcards
+namespace Desktop_Flashcards
 {
     class Card
     {
@@ -33,7 +33,6 @@ namespace Flashcards
             {
                 this.sideTwo = content;
             }
-
         }
 
         /// <summary>
