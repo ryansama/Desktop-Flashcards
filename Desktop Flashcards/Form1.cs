@@ -17,7 +17,7 @@ namespace Desktop_Flashcards
     {
 
         string cardDir = "";//full path of the 'cards' directory
-        IList<Card>[] collection;
+        IList<Card>[] collection;//the collection of card groups and their cards 
 
         //Material skin from Ignace Maes
         private readonly MaterialSkinManager materialSkinManager;
@@ -213,10 +213,32 @@ namespace Desktop_Flashcards
 
         /// <summary>
         /// Events when the 'Create Card Group' button is clicked.
+        /// The functionality from the console applciation's "createCardGroup()"
+        /// method is included here.
         /// </summary>
+        //TODO allow the user to create a new group using the 'Enter' key
         private void createGroupBtn_Click(object sender, EventArgs e)
         {
+            //get new card group name and combine with full 'cards/' path
+            string newGroup = createGroupInput.Text;
+            string tempPath = this.cardDir + newGroup;
 
+            //error checking
+            if (String.IsNullOrWhiteSpace(newGroup))
+            {
+                //TODO create material design pop-up
+                MessageBox.Show("Please enter a valid card group name.");
+            }else if (Directory.Exists(tempPath))
+            {
+                //TODO create material design pop-up
+                MessageBox.Show("This card group already exists!");
+            }
+            else
+            {
+                //make the card group
+                Directory.CreateDirectory(tempPath);
+                MessageBox.Show(newGroup + " was created!");
+            }
         }
 
         /// <summary>
