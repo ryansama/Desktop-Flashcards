@@ -17,6 +17,7 @@ namespace Desktop_Flashcards
     {
 
         string cardDir = "";//full path of the 'cards' directory
+        IList<Card>[] collection;
 
         //Material skin from Ignace Maes
         private readonly MaterialSkinManager materialSkinManager;
@@ -30,6 +31,7 @@ namespace Desktop_Flashcards
 
             Directory.CreateDirectory("cards");//if the cards/ directory is not present, create one
             this.cardDir = getCardsDirectory();//set the global variable to the full path
+            this.collection = makeList();
 
             // Initialize MaterialSkinManager with theme and color scheme
             materialSkinManager = MaterialSkinManager.Instance;
@@ -38,7 +40,7 @@ namespace Desktop_Flashcards
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Green600, Primary.Green700, Primary.Green200, Accent.Red100, TextShade.WHITE);
 
             //populate the radio button panel under 'Create' tab
-            populatePanel(flowLayoutPanel1);
+            populatePanel(flowLayoutPanel2);
 
         }
 
@@ -54,6 +56,98 @@ namespace Desktop_Flashcards
         }
 
         /// <summary>
+        /// Make an IList of Card objects to allow for 
+        /// traversing through each card group.
+        /// </summary>
+        /// <returns></returns>
+        private IList<Card>[] makeList()
+        {
+            //get card group paths and store it in a string array
+            string[] folders = Directory.GetDirectories(getCardsDirectory());
+
+            //number of card groups the user has
+            int numGroups = folders.Length;
+
+            //Create an array of ILists. The size of the array depends on the number of card groups the user has.
+            IList<Card>[] iListArray = new IList<Card>[numGroups];
+
+            for (int i = 0; i < iListArray.Length; i++)
+            {
+                var type = Type.GetType(typeof(List<Card>).AssemblyQualifiedName);
+                var list = (IList<Card>)Activator.CreateInstance(type);
+                iListArray[i] = list;
+            }
+            //get cards from each card group
+            for (int i = 0; i < numGroups; i++)
+            {
+
+                string[] fileEntries = System.IO.Directory.GetFiles(folders[i]);//.txt file paths of current card group
+                int numCards = fileEntries.Length;//number of cards in the folder
+
+                for (int j = 0; j < numCards; j++)
+                {
+                    Card tempCard = makeCardObject(fileEntries[j]);//make a card from the current file
+                    tempCard.belongsTo = folders[i];
+
+                    try
+                    {
+                        iListArray[i].Add(tempCard);//add the card to the iList array's appropriate index
+                    }
+                    catch (NullReferenceException e)
+                    {
+                        Console.WriteLine("Exception when adding card to IList");
+                    }
+
+
+                }
+
+                for (int j = 0; j < numCards; j++)
+                {
+                    Card tempCard = makeCardObject(fileEntries[j]);//make a card from the current file
+                    tempCard.belongsTo = folders[i];
+
+                    try
+                    {
+                        iListArray[i].Add(tempCard);//add the card to the iList array's appropriate index
+                    }
+                    catch (NullReferenceException e)
+                    {
+                        Console.WriteLine("Exception when adding card to IList");
+                    }
+
+                }
+
+            }
+            return iListArray;
+
+        }
+
+        /// <summary>
+        /// Reads a .txt file, populates
+        /// a Card object using its content 
+        /// and returns it.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private Card makeCardObject(string path)
+        {
+            Card newCard = new Card();
+            int counter = 1;
+            string line;
+
+            // Read the file and add each line to the Card.
+            System.IO.StreamReader file = new System.IO.StreamReader(path);
+            while ((line = file.ReadLine()) != null)
+            {
+                newCard.writeToSide(counter, line);
+                counter++;
+            }
+
+            file.Close();
+            return newCard;
+        }
+
+        /// <summary>
         /// Method to start events when switching between tabs.
         /// </summary>
         /// <param name="sender"></param>
@@ -65,12 +159,13 @@ namespace Desktop_Flashcards
             switch (tab)
             {
                 case 0:
-                    flowLayoutPanel1.Controls.Clear();
                     populatePanel(flowLayoutPanel1);//update panel when entering the 'create' tab
                     break;
                 case 1:
-                    flowLayoutPanel2.Controls.Clear();
                     populatePanel(flowLayoutPanel2);//update panel when entering the 'read' tab
+                    break;
+                case 2:
+                    populatePanel(flowLayoutPanel3);
                     break;
                 default:
                     MessageBox.Show("Default switch case");
