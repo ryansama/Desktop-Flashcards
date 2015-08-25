@@ -31,11 +31,11 @@
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.readCardPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.createCardBtn = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.createCardPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.newCardBack = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -46,7 +46,7 @@
             this.createGroupBtn = new MaterialSkin.Controls.MaterialFlatButton();
             this.createGroupInput = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
-            this.createCardBtn = new MaterialSkin.Controls.MaterialFlatButton();
+            this.continueBtn = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -70,8 +70,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Controls.Add(this.materialRaisedButton2);
+            this.tabPage1.Controls.Add(this.materialFlatButton1);
             this.tabPage1.Controls.Add(this.materialLabel2);
             this.tabPage1.Controls.Add(this.readCardPanel);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -80,11 +81,11 @@
             this.tabPage1.Size = new System.Drawing.Size(709, 332);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Read";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.continueBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -92,28 +93,23 @@
             this.panel1.TabIndex = 7;
             this.panel1.Visible = false;
             // 
-            // button1
+            // materialFlatButton1
             // 
-            this.button1.Location = new System.Drawing.Point(306, 285);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Continue";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // materialRaisedButton2
-            // 
-            this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(296, 288);
-            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton2.Name = "materialRaisedButton2";
-            this.materialRaisedButton2.Primary = true;
-            this.materialRaisedButton2.Size = new System.Drawing.Size(116, 38);
-            this.materialRaisedButton2.TabIndex = 6;
-            this.materialRaisedButton2.Text = "READ";
-            this.materialRaisedButton2.UseVisualStyleBackColor = true;
-            this.materialRaisedButton2.Click += new System.EventHandler(this.readCardBtn_Click);
+            this.materialFlatButton1.AutoSize = true;
+            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton1.BackColor = System.Drawing.Color.Transparent;
+            this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.materialFlatButton1.Location = new System.Drawing.Point(307, 287);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton1.Name = "materialFlatButton1";
+            this.materialFlatButton1.Primary = true;
+            this.materialFlatButton1.Size = new System.Drawing.Size(95, 36);
+            this.materialFlatButton1.TabIndex = 6;
+            this.materialFlatButton1.Text = "Read Group";
+            this.materialFlatButton1.UseVisualStyleBackColor = false;
+            this.materialFlatButton1.Click += new System.EventHandler(this.readCardBtn_Click);
             // 
             // materialLabel2
             // 
@@ -153,6 +149,22 @@
             this.tabPage2.Size = new System.Drawing.Size(709, 332);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Create";
+            // 
+            // createCardBtn
+            // 
+            this.createCardBtn.AutoSize = true;
+            this.createCardBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.createCardBtn.Depth = 0;
+            this.createCardBtn.Location = new System.Drawing.Point(583, 287);
+            this.createCardBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.createCardBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.createCardBtn.Name = "createCardBtn";
+            this.createCardBtn.Primary = true;
+            this.createCardBtn.Size = new System.Drawing.Size(102, 36);
+            this.createCardBtn.TabIndex = 4;
+            this.createCardBtn.Text = "Create Card";
+            this.createCardBtn.UseVisualStyleBackColor = true;
+            this.createCardBtn.Click += new System.EventHandler(this.createCardBtn_Click);
             // 
             // materialLabel1
             // 
@@ -291,21 +303,22 @@
             this.materialTabSelector1.TabIndex = 0;
             this.materialTabSelector1.Text = "\\";
             // 
-            // createCardBtn
+            // continueBtn
             // 
-            this.createCardBtn.AutoSize = true;
-            this.createCardBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.createCardBtn.Depth = 0;
-            this.createCardBtn.Location = new System.Drawing.Point(583, 287);
-            this.createCardBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.createCardBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.createCardBtn.Name = "createCardBtn";
-            this.createCardBtn.Primary = true;
-            this.createCardBtn.Size = new System.Drawing.Size(102, 36);
-            this.createCardBtn.TabIndex = 4;
-            this.createCardBtn.Text = "Create Card";
-            this.createCardBtn.UseVisualStyleBackColor = true;
-            this.createCardBtn.Click += new System.EventHandler(this.createCardBtn_Click);
+            this.continueBtn.AutoSize = true;
+            this.continueBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.continueBtn.Depth = 0;
+            this.continueBtn.ForeColor = System.Drawing.Color.DarkOrange;
+            this.continueBtn.Location = new System.Drawing.Point(312, 259);
+            this.continueBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.continueBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.continueBtn.Name = "continueBtn";
+            this.continueBtn.Primary = true;
+            this.continueBtn.Size = new System.Drawing.Size(79, 36);
+            this.continueBtn.TabIndex = 1;
+            this.continueBtn.Text = "Continue";
+            this.continueBtn.UseVisualStyleBackColor = true;
+            this.continueBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -322,6 +335,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -342,14 +356,14 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.FlowLayoutPanel readCardPanel;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
         private MaterialSkin.Controls.MaterialFlatButton createGroupBtn;
         private MaterialSkin.Controls.MaterialSingleLineTextField createGroupInput;
         private MaterialSkin.Controls.MaterialFlatButton deleteGroupBtn;
         private System.Windows.Forms.FlowLayoutPanel groupPanel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
         private MaterialSkin.Controls.MaterialFlatButton createCardBtn;
+        private MaterialSkin.Controls.MaterialFlatButton continueBtn;
     }
 }
 
