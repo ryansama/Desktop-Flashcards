@@ -283,7 +283,7 @@ namespace Desktop_Flashcards
                 
                 //create and write to new text file
                 System.IO.File.WriteAllLines(groupPath + "\\" + counter + ".txt", cardContent);
-
+                this.collection = makeList();
                 //TODO add small delay here for material animation to occur
                 MessageBox.Show("New card was created!");
                 newCardFront.Clear();
@@ -360,11 +360,11 @@ namespace Desktop_Flashcards
             string panel = getSelectedRadioButton(readCardPanel);
             if (panel == null) 
             {
-                return;
+                MessageBox.Show("Please select a card group to read!");
             }
             string cardGroupPath = Directory.GetCurrentDirectory() +"\\cards\\" + panel;
             int counter = 0;
-            //find the correct IList in the collections array
+            //find the correct IList in the collection array
 
             while (counter < collection.Length - 1)
             {
