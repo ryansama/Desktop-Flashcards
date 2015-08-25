@@ -42,6 +42,18 @@ namespace Desktop_Flashcards
 
             //populate the radio button panel under 'Create' tab
             populatePanel(readCardPanel);
+
+            if (Directory.GetDirectories(this.cardDir).Length == 0)
+            {
+                materialLabel2.Text = "Get started by creating a new card group under 'Groups'.";
+                materialLabel2.Location = new Point(165, 50);
+            }
+            else
+            {
+                materialLabel2.Text = "Select a card group to read.";
+                materialLabel2.Location = new Point(258, 50);
+            }
+
             populatePanel(createCardPanel);
             populatePanel(groupPanel);
 
@@ -195,6 +207,16 @@ namespace Desktop_Flashcards
         {
             readCardPanel.Controls.Clear();
             populatePanel(readCardPanel);
+            if (Directory.GetDirectories(this.cardDir).Length == 0)
+            {
+                materialLabel2.Text = "Get started by creating a new card group under 'Groups'.";
+                materialLabel2.Location = new Point(165, 50);
+            }
+            else
+            {
+                materialLabel2.Text = "Select a card group to read.";
+                materialLabel2.Location = new Point(258, 50);
+            }
 
             createCardPanel.Controls.Clear();
             populatePanel(createCardPanel);
@@ -318,6 +340,7 @@ namespace Desktop_Flashcards
             if (panel == null) 
             {
                 MessageBox.Show("Please select a card group to read!");
+                return;
             }
             string cardGroupPath = Directory.GetCurrentDirectory() +"\\cards\\" + panel;
             int counter = 0;
@@ -365,7 +388,6 @@ namespace Desktop_Flashcards
                 if (card.viewed == false)
                 {
                     g.DrawString(card.sideOne, font, s, new PointF(50, 50));
-                   
                     while (true)
                     {
                         Application.DoEvents();
@@ -386,7 +408,6 @@ namespace Desktop_Flashcards
                     }
                     continueButtonClicked = false;
                     read++;
-
                     g.Clear(Color.White);
                     card.viewed = true;
                 }

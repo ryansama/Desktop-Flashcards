@@ -31,6 +31,7 @@
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.continueBtn = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.readCardPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -46,7 +47,6 @@
             this.createGroupBtn = new MaterialSkin.Controls.MaterialFlatButton();
             this.createGroupInput = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
-            this.continueBtn = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -66,7 +66,6 @@
             this.materialTabControl1.SelectedIndex = 0;
             this.materialTabControl1.Size = new System.Drawing.Size(717, 358);
             this.materialTabControl1.TabIndex = 1;
-            
             // 
             // tabPage1
             // 
@@ -85,13 +84,30 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.continueBtn);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(234, 175);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(703, 326);
+            this.panel1.Size = new System.Drawing.Size(472, 154);
             this.panel1.TabIndex = 7;
             this.panel1.Visible = false;
+            // 
+            // continueBtn
+            // 
+            this.continueBtn.AutoSize = true;
+            this.continueBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.continueBtn.Depth = 0;
+            this.continueBtn.ForeColor = System.Drawing.Color.DarkOrange;
+            this.continueBtn.Location = new System.Drawing.Point(312, 259);
+            this.continueBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.continueBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.continueBtn.Name = "continueBtn";
+            this.continueBtn.Primary = true;
+            this.continueBtn.Size = new System.Drawing.Size(79, 36);
+            this.continueBtn.TabIndex = 1;
+            this.continueBtn.Text = "Continue";
+            this.continueBtn.UseVisualStyleBackColor = true;
+            this.continueBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // materialFlatButton1
             // 
@@ -117,12 +133,12 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(275, 50);
+            this.materialLabel2.Location = new System.Drawing.Point(258, 50);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(158, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(193, 19);
             this.materialLabel2.TabIndex = 5;
-            this.materialLabel2.Text = "SELECT CARD GROUP";
+            this.materialLabel2.Text = "Select a card group to read.";
             // 
             // readCardPanel
             // 
@@ -302,23 +318,6 @@
             this.materialTabSelector1.Size = new System.Drawing.Size(749, 45);
             this.materialTabSelector1.TabIndex = 0;
             this.materialTabSelector1.Text = "\\";
-            // 
-            // continueBtn
-            // 
-            this.continueBtn.AutoSize = true;
-            this.continueBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.continueBtn.Depth = 0;
-            this.continueBtn.ForeColor = System.Drawing.Color.DarkOrange;
-            this.continueBtn.Location = new System.Drawing.Point(312, 259);
-            this.continueBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.continueBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.continueBtn.Name = "continueBtn";
-            this.continueBtn.Primary = true;
-            this.continueBtn.Size = new System.Drawing.Size(79, 36);
-            this.continueBtn.TabIndex = 1;
-            this.continueBtn.Text = "Continue";
-            this.continueBtn.UseVisualStyleBackColor = true;
-            this.continueBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
