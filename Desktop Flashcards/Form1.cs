@@ -99,25 +99,9 @@ namespace Desktop_Flashcards
                     }
                     catch (NullReferenceException e)
                     {
-                        Console.WriteLine("Exception when adding card to IList");
+                        MessageBox.Show("Exception when adding card to IList");
                     }
 
-
-                }
-
-                for (int j = 0; j < numCards; j++)
-                {
-                    Card tempCard = makeCardObject(fileEntries[j]);//make a card from the current file
-                    tempCard.belongsTo = folders[i];
-
-                    try
-                    {
-                        iListArray[i].Add(tempCard);//add the card to the iList array's appropriate index
-                    }
-                    catch (NullReferenceException e)
-                    {
-                        Console.WriteLine("Exception when adding card to IList");
-                    }
 
                 }
 
@@ -202,7 +186,6 @@ namespace Desktop_Flashcards
         /// <summary>
         /// Populates the panel containing radio buttons in 'Create' tab.
         /// </summary>
-        //TODO add padding between each radio button
         private void populatePanel(FlowLayoutPanel panel)
         {
             MaterialRadioButton radioBtn;
@@ -284,7 +267,7 @@ namespace Desktop_Flashcards
                 //create and write to new text file
                 System.IO.File.WriteAllLines(groupPath + "\\" + counter + ".txt", cardContent);
                 this.collection = makeList();
-                //TODO add small delay here for material animation to occur
+
                 MessageBox.Show("New card was created!");
                 newCardFront.Clear();
                 newCardBack.Clear();
@@ -296,7 +279,7 @@ namespace Desktop_Flashcards
         /// The functionality from the console applciation's "createCardGroup()"
         /// method is included here.
         /// </summary>
-        //TODO allow the user to create a new group using the 'Enter' key
+        
         private void createGroupBtn_Click(object sender, EventArgs e)
         {
             //get new card group name and combine with full 'cards/' path
@@ -391,8 +374,8 @@ namespace Desktop_Flashcards
             panel1.Visible = true;
             SolidBrush s = new SolidBrush(Color.Black);
             Graphics g = panel1.CreateGraphics();
-            FontFamily ff = new FontFamily("Calibri");
-            System.Drawing.Font font = new System.Drawing.Font(ff, 15);
+            //FontFamily ff = new FontFamily("Calibri");
+            System.Drawing.Font font = new System.Drawing.Font("Roboto", 15F);
             int numCards = toRead.Count;//number of cards in the group
             Random rand = new Random();//random number generator
 
