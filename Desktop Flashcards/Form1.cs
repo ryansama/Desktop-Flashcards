@@ -10,8 +10,7 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using System.IO;
-using System.Drawing;
-using System.Windows.Forms;
+
 
 namespace Desktop_Flashcards
 {
@@ -84,32 +83,12 @@ namespace Desktop_Flashcards
             //get cards from each card group
             for (int i = 0; i < numGroups; i++)
             {
-
                 string[] fileEntries = System.IO.Directory.GetFiles(folders[i]);//.txt file paths of current card group
-                int numCards = fileEntries.Length;//number of cards in the folder
-
+                int numCards = fileEntries.Length;//number of cards in the folder               
                 for (int j = 0; j < numCards; j++)
                 {
                     Card tempCard = makeCardObject(fileEntries[j]);//make a card from the current file
                     tempCard.belongsTo = folders[i];
-
-                    try
-                    {
-                        iListArray[i].Add(tempCard);//add the card to the iList array's appropriate index
-                    }
-                    catch (NullReferenceException e)
-                    {
-                        Console.WriteLine("Exception when adding card to IList");
-                    }
-
-
-                }
-
-                for (int j = 0; j < numCards; j++)
-                {
-                    Card tempCard = makeCardObject(fileEntries[j]);//make a card from the current file
-                    tempCard.belongsTo = folders[i];
-
                     try
                     {
                         iListArray[i].Add(tempCard);//add the card to the iList array's appropriate index
@@ -370,24 +349,23 @@ namespace Desktop_Flashcards
             {
                 if (collection[counter].Count == 0)
                 {
-                    MessageBox.Show("This Card Group is Empty");
+
                 }
                 else
                 {
-                    //Console.WriteLine("The list at index " + counter + " is NOT empty.");
                     IList<Card> temp = collection[counter];
                     if (temp[0].belongsTo.Equals(cardGroupPath))
                     {
                         Console.WriteLine("Found the matching card group.");
                         break;
                     }
+                   
                 }
 
                 counter++;
             }
 
             IList<Card> toRead = collection[counter];//the card group to be read
-
             panel1.Visible = true;
             SolidBrush s = new SolidBrush(Color.Black);
             Graphics g = panel1.CreateGraphics();
@@ -414,7 +392,6 @@ namespace Desktop_Flashcards
                     }
                     continueButtonClicked = false;                                          
                     g.DrawString(card.sideTwo, font, s, new PointF(50, 150));
-                    card.setToViewed();
                     while (true)
                     {
                         Application.DoEvents();
@@ -427,6 +404,7 @@ namespace Desktop_Flashcards
                     read++;
 
                     g.Clear(Color.White);
+                    card.viewed = true;
                 }
 
             }
