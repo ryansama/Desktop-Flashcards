@@ -158,33 +158,6 @@ namespace Desktop_Flashcards
         }
 
         /// <summary>
-        /// Method to start events when switching between tabs.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void materialTabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            //int tab = materialTabControl1.SelectedIndex;
-            //switch (tab)
-            //{
-            //    case 0:
-            //        populatePanel(createCardPanel);//update panel when entering the 'create' tab
-            //        break;
-            //    case 1:
-            //        populatePanel(readCardPanel);//update panel when entering the 'read' tab
-            //        break;
-            //    case 2:
-            //        populatePanel(createGroupPanel);
-            //        break;
-            //    default:
-            //        MessageBox.Show("Default switch case");
-            //        break;
-            //}
-            
-        }
-
-        /// <summary>
         /// Populates the panel containing radio buttons in 'Create' tab.
         /// </summary>
         private void populatePanel(FlowLayoutPanel panel)
