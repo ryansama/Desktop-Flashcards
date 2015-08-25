@@ -267,11 +267,11 @@ namespace Desktop_Flashcards
                 //create and write to new text file
                 System.IO.File.WriteAllLines(groupPath + "\\" + counter + ".txt", cardContent);
                 this.collection = makeList();
-
-                MessageBox.Show("New card was created!");
                 newCardFront.Clear();
                 newCardBack.Clear();
+                MessageBox.Show("New card was created!");
             }
+            
         }
 
         /// <summary>

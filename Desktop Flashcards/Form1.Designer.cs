@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,8 +38,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.createCardPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.cardCreatedAlert = new System.Windows.Forms.PictureBox();
-            this.createCardBtn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.newCardBack = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.newCardFront = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -49,11 +46,11 @@
             this.createGroupBtn = new MaterialSkin.Controls.MaterialFlatButton();
             this.createGroupInput = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.createCardBtn = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cardCreatedAlert)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,10 +141,9 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.createCardBtn);
             this.tabPage2.Controls.Add(this.materialLabel1);
             this.tabPage2.Controls.Add(this.createCardPanel);
-            this.tabPage2.Controls.Add(this.cardCreatedAlert);
-            this.tabPage2.Controls.Add(this.createCardBtn);
             this.tabPage2.Controls.Add(this.newCardBack);
             this.tabPage2.Controls.Add(this.newCardFront);
             this.tabPage2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -180,30 +176,6 @@
             this.createCardPanel.Padding = new System.Windows.Forms.Padding(3);
             this.createCardPanel.Size = new System.Drawing.Size(511, 143);
             this.createCardPanel.TabIndex = 3;
-            // 
-            // cardCreatedAlert
-            // 
-            this.cardCreatedAlert.Image = ((System.Drawing.Image)(resources.GetObject("cardCreatedAlert.Image")));
-            this.cardCreatedAlert.Location = new System.Drawing.Point(563, 230);
-            this.cardCreatedAlert.Name = "cardCreatedAlert";
-            this.cardCreatedAlert.Size = new System.Drawing.Size(140, 50);
-            this.cardCreatedAlert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.cardCreatedAlert.TabIndex = 2;
-            this.cardCreatedAlert.TabStop = false;
-            this.cardCreatedAlert.Visible = false;
-            // 
-            // createCardBtn
-            // 
-            this.createCardBtn.Depth = 0;
-            this.createCardBtn.Location = new System.Drawing.Point(576, 286);
-            this.createCardBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.createCardBtn.Name = "createCardBtn";
-            this.createCardBtn.Primary = true;
-            this.createCardBtn.Size = new System.Drawing.Size(127, 40);
-            this.createCardBtn.TabIndex = 1;
-            this.createCardBtn.Text = "Create Card";
-            this.createCardBtn.UseVisualStyleBackColor = true;
-            this.createCardBtn.Click += new System.EventHandler(this.createCardBtn_Click);
             // 
             // newCardBack
             // 
@@ -319,6 +291,22 @@
             this.materialTabSelector1.TabIndex = 0;
             this.materialTabSelector1.Text = "\\";
             // 
+            // createCardBtn
+            // 
+            this.createCardBtn.AutoSize = true;
+            this.createCardBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.createCardBtn.Depth = 0;
+            this.createCardBtn.Location = new System.Drawing.Point(583, 287);
+            this.createCardBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.createCardBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.createCardBtn.Name = "createCardBtn";
+            this.createCardBtn.Primary = true;
+            this.createCardBtn.Size = new System.Drawing.Size(102, 36);
+            this.createCardBtn.TabIndex = 4;
+            this.createCardBtn.Text = "Create Card";
+            this.createCardBtn.UseVisualStyleBackColor = true;
+            this.createCardBtn.Click += new System.EventHandler(this.createCardBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -336,7 +324,6 @@
             this.panel1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cardCreatedAlert)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -349,10 +336,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private MaterialSkin.Controls.MaterialSingleLineTextField newCardBack;
         private MaterialSkin.Controls.MaterialSingleLineTextField newCardFront;
-        private MaterialSkin.Controls.MaterialRaisedButton createCardBtn;
         private System.Windows.Forms.TabPage tabPage3;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
-        private System.Windows.Forms.PictureBox cardCreatedAlert;
         private System.Windows.Forms.FlowLayoutPanel createCardPanel;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
@@ -364,6 +349,7 @@
         private System.Windows.Forms.FlowLayoutPanel groupPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
+        private MaterialSkin.Controls.MaterialFlatButton createCardBtn;
     }
 }
 
