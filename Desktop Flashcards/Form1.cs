@@ -201,6 +201,7 @@ namespace Desktop_Flashcards
         /// <summary>
         /// Populates the panel containing radio buttons in 'Create' tab.
         /// </summary>
+        //TODO add padding between each radio button
         private void populatePanel(FlowLayoutPanel panel)
         {
             MaterialRadioButton radioBtn;
@@ -226,6 +227,22 @@ namespace Desktop_Flashcards
                 radioBtn.UseVisualStyleBackColor = true;
                 panel.Controls.Add(radioBtn);
             }
+        }
+
+        /// <summary>
+        /// Method to update each radio button panels'
+        /// content.
+        /// </summary>
+        private void repopulateAllPanels()
+        {
+            readCardPanel.Controls.Clear();
+            populatePanel(readCardPanel);
+
+            createCardPanel.Controls.Clear();
+            populatePanel(createCardPanel);
+
+            groupPanel.Controls.Clear();
+            populatePanel(groupPanel);
         }
 
         /// <summary>
@@ -299,6 +316,7 @@ namespace Desktop_Flashcards
                 //make the card group
                 Directory.CreateDirectory(tempPath);
                 MessageBox.Show(newGroup + " was created!");//TODO create material design pop-up
+                repopulateAllPanels();//update radio button panels
             }
         }
 
