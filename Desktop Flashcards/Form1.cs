@@ -38,10 +38,22 @@ namespace Desktop_Flashcards
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green600, Primary.Green700, Primary.Green200, Accent.Red100, TextShade.WHITE);
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green600, Primary.Green700, Primary.Green200, Accent.Red100, TextShade.WHITE);       
 
-            //populate the radio button panel under 'Create' tab 
-            populatePanel(readCardPanel);          
+            //populate the radio button panel under 'Create' tab
+            populatePanel(readCardPanel);
+
+            if (Directory.GetDirectories(this.cardDir).Length == 0)
+            {
+                materialLabel2.Text = "Get started by creating a new card group under 'Groups'.";
+                materialLabel2.Location = new Point(165, 50);
+            }
+            else
+            {
+                materialLabel2.Text = "Select a card group to read.";
+                materialLabel2.Location = new Point(258, 50);
+            }
+
             populatePanel(createCardPanel);
             populatePanel(groupPanel);
             
@@ -198,6 +210,16 @@ namespace Desktop_Flashcards
         {
             readCardPanel.Controls.Clear();
             populatePanel(readCardPanel);
+            if (Directory.GetDirectories(this.cardDir).Length == 0)
+            {
+                materialLabel2.Text = "Get started by creating a new card group under 'Groups'.";
+                materialLabel2.Location = new Point(165, 50);
+            }
+            else
+            {
+                materialLabel2.Text = "Select a card group to read.";
+                materialLabel2.Location = new Point(258, 50);
+            }
 
             createCardPanel.Controls.Clear();
             populatePanel(createCardPanel);
@@ -353,7 +375,7 @@ namespace Desktop_Flashcards
                 counter++;
             }
             Image image = Image.FromFile(Directory.GetCurrentDirectory() + "\\card.png");
-            Rectangle rect = new Rectangle(5,20, 700, 345);
+            Rectangle rect = new Rectangle(5,10, 700, 345);
             IList<Card> toRead = collection[counter];//the card group to be read
             panel1.Visible = true;
             SolidBrush s = new SolidBrush(Color.Black);
@@ -362,7 +384,6 @@ namespace Desktop_Flashcards
             System.Drawing.Font font = new System.Drawing.Font("Roboto", 15F);
             int numCards = toRead.Count;//number of cards in the group
             Random rand = new Random();//random number generator
-
             int read = 0;//number of cards that have been read
             while (read < numCards)
             {
@@ -371,7 +392,6 @@ namespace Desktop_Flashcards
                 if (card.viewed == false)
                 {
                     g.DrawString(card.sideOne, font, s, new PointF(50, 50));
-                   
                     while (true)
                     {
                         Application.DoEvents();
@@ -392,10 +412,10 @@ namespace Desktop_Flashcards
                     }
                     continueButtonClicked = false;
                     read++;
-
-                    g.Clear(Color.White);
+                 
                     card.viewed = true;
                 }
+                g.Clear(Color.White);
 
             }
             for (int i = 0; i < numCards;i++)
