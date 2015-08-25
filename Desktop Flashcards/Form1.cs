@@ -40,10 +40,11 @@ namespace Desktop_Flashcards
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Green600, Primary.Green700, Primary.Green200, Accent.Red100, TextShade.WHITE);
 
-            //populate the radio button panel under 'Create' tab
-            populatePanel(readCardPanel);
+            //populate the radio button panel under 'Create' tab 
+            populatePanel(readCardPanel);          
             populatePanel(createCardPanel);
             populatePanel(groupPanel);
+            
 
         }
 
@@ -65,12 +66,14 @@ namespace Desktop_Flashcards
         /// <returns></returns>
         private IList<Card>[] makeList()
         {
+            
             //get card group paths and store it in a string array
             string[] folders = Directory.GetDirectories(getCardsDirectory());
 
             //number of card groups the user has
             int numGroups = folders.Length;
-
+            
+           
             //Create an array of ILists. The size of the array depends on the number of card groups the user has.
             IList<Card>[] iListArray = new IList<Card>[numGroups];
 
@@ -349,7 +352,8 @@ namespace Desktop_Flashcards
 
                 counter++;
             }
-
+            Image image = Image.FromFile(Directory.GetCurrentDirectory() + "\\card.png");
+            Rectangle rect = new Rectangle(5,20, 700, 345);
             IList<Card> toRead = collection[counter];//the card group to be read
             panel1.Visible = true;
             SolidBrush s = new SolidBrush(Color.Black);
@@ -362,6 +366,7 @@ namespace Desktop_Flashcards
             int read = 0;//number of cards that have been read
             while (read < numCards)
             {
+                g.DrawImage(image, rect);
                 Card card = toRead[rand.Next(0, numCards)];
                 if (card.viewed == false)
                 {
@@ -404,7 +409,6 @@ namespace Desktop_Flashcards
         {
             continueButtonClicked = true;
         }
-  
-        
+
     }
 }
