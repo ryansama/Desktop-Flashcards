@@ -230,7 +230,7 @@
             this.deleteGroupBtn.AutoSize = true;
             this.deleteGroupBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.deleteGroupBtn.Depth = 0;
-            this.deleteGroupBtn.Location = new System.Drawing.Point(546, 255);
+            this.deleteGroupBtn.Location = new System.Drawing.Point(547, 255);
             this.deleteGroupBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.deleteGroupBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.deleteGroupBtn.Name = "deleteGroupBtn";
