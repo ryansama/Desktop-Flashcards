@@ -318,6 +318,7 @@ namespace Desktop_Flashcards
             if (panel == null) 
             {
                 MessageBox.Show("Please select a card group to read!");
+                return;
             }
             string cardGroupPath = Directory.GetCurrentDirectory() +"\\cards\\" + panel;
             int counter = 0;
