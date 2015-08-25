@@ -351,65 +351,6 @@ namespace Desktop_Flashcards
                                     MessageBoxIcon.Information);
                 }
             }
-
-            //Console.Clear();
-            //Console.WriteLine("Which card group would you like to delete?");
-            //displayCardGroups(false);
-            //string folderName = Console.ReadLine();
-            //string path = getUserDirectory() + folderName;
-            //bool deleted = true;
-
-            //try
-            //{
-            //    // Determine whether the directory exists. 
-            //    if (Directory.Exists(path) && !String.IsNullOrWhiteSpace(folderName))
-            //    {
-            //        Console.ForegroundColor = ConsoleColor.Red;
-            //        Console.Write("WARNING: All cards within the group will be lost. ");
-            //        Console.ResetColor();
-            //        Console.Write("Are you sure you want to delete this card group? (y/n)");
-            //        string choice = Console.ReadLine();
-            //        if (choice.Equals("y") || choice.Equals("Y"))
-            //        {
-            //            Directory.Delete(path, true);
-            //        }
-            //        else
-            //        {
-            //            Console.WriteLine("No card groups were deleted.");
-            //            return;
-            //        }
-
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("The specified card group does not exist.");
-            //        deleted = false;
-            //    }
-
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine("The process failed: {0}", e.ToString());
-            //}
-            //finally { }
-
-            //if (deleted)
-            //{
-            //    //inform user about successful card group deletion
-            //    Console.ForegroundColor = ConsoleColor.Green;
-            //    Console.Write("The card group ");
-            //    Console.ForegroundColor = ConsoleColor.Cyan;
-            //    Console.Write(folderName);
-            //    Console.ForegroundColor = ConsoleColor.Green;
-            //    Console.Write(" was deleted succesfully. Press any key to continue.");
-            //    Console.ResetColor();
-            //    Console.ReadKey();
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Nothing was deleted. Press any key to contiune.");
-            //    Console.ReadKey();
-            //}
         }
     }
 }
