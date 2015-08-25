@@ -86,20 +86,7 @@ namespace Desktop_Flashcards
                 string[] fileEntries = System.IO.Directory.GetFiles(folders[i]);//.txt file paths of current card group
 
                 int numCards = fileEntries.Length;//number of cards in the folder               
-                for (int j = 0; j < numCards; j++)
-                {
-                    Card tempCard = makeCardObject(fileEntries[j]);//make a card from the current file
-                    tempCard.belongsTo = folders[i];
-                    try
-                    {
-                        iListArray[i].Add(tempCard);//add the card to the iList array's appropriate index
-                    }
-                    catch (NullReferenceException e)
-                    {
-                        Console.WriteLine("Exception when adding card to IList");
-                    }
-
-                }
+        
                
 
                 for (int j = 0; j < numCards; j++)
@@ -361,20 +348,14 @@ namespace Desktop_Flashcards
             }
             string cardGroupPath = Directory.GetCurrentDirectory() +"\\cards\\" + panel;
             int counter = 0;
-<<<<<<< HEAD
-            //find the correct IList in the collections array
             if (Directory.GetFiles(cardGroupPath).Length == 0)
             {
                 MessageBox.Show("The Card Group is empty");
                 return;
             }
-||||||| merged common ancestors
+
             //find the correct IList in the collections array
 
-=======
-            //find the correct IList in the collection array
-
->>>>>>> bd677ff69751d141741f4215b12820b0409352ad
             while (counter < collection.Length - 1)
             {
                 if (collection[counter].Count == 0)
