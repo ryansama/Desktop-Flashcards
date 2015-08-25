@@ -33,17 +33,17 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.readCardPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.createCardPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.cardCreatedAlert = new System.Windows.Forms.PictureBox();
             this.createCardBtn = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.newCardBack = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.newCardFront = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.deleteGroupBtn = new MaterialSkin.Controls.MaterialFlatButton();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.createGroupBtn = new MaterialSkin.Controls.MaterialFlatButton();
             this.createGroupInput = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
@@ -72,7 +72,7 @@
             // 
             this.tabPage1.Controls.Add(this.materialRaisedButton2);
             this.tabPage1.Controls.Add(this.materialLabel2);
-            this.tabPage1.Controls.Add(this.flowLayoutPanel2);
+            this.tabPage1.Controls.Add(this.readCardPanel);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -106,25 +106,25 @@
             this.materialLabel2.TabIndex = 5;
             this.materialLabel2.Text = "SELECT CARD GROUP";
             // 
-            // flowLayoutPanel2
+            // readCardPanel
             // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(82, 86);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(3);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(544, 182);
-            this.flowLayoutPanel2.TabIndex = 4;
+            this.readCardPanel.AutoScroll = true;
+            this.readCardPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.readCardPanel.Location = new System.Drawing.Point(82, 86);
+            this.readCardPanel.Name = "readCardPanel";
+            this.readCardPanel.Padding = new System.Windows.Forms.Padding(3);
+            this.readCardPanel.Size = new System.Drawing.Size(544, 182);
+            this.readCardPanel.TabIndex = 4;
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
             this.tabPage2.Controls.Add(this.materialLabel1);
-            this.tabPage2.Controls.Add(this.flowLayoutPanel1);
+            this.tabPage2.Controls.Add(this.createCardPanel);
             this.tabPage2.Controls.Add(this.cardCreatedAlert);
             this.tabPage2.Controls.Add(this.createCardBtn);
-            this.tabPage2.Controls.Add(this.materialSingleLineTextField2);
-            this.tabPage2.Controls.Add(this.materialSingleLineTextField1);
+            this.tabPage2.Controls.Add(this.newCardBack);
+            this.tabPage2.Controls.Add(this.newCardFront);
             this.tabPage2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -146,15 +146,15 @@
             this.materialLabel1.TabIndex = 0;
             this.materialLabel1.Text = "SELECT CARD GROUP";
             // 
-            // flowLayoutPanel1
+            // createCardPanel
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(46, 183);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(3);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(511, 143);
-            this.flowLayoutPanel1.TabIndex = 3;
+            this.createCardPanel.AutoScroll = true;
+            this.createCardPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.createCardPanel.Location = new System.Drawing.Point(46, 183);
+            this.createCardPanel.Name = "createCardPanel";
+            this.createCardPanel.Padding = new System.Windows.Forms.Padding(3);
+            this.createCardPanel.Size = new System.Drawing.Size(511, 143);
+            this.createCardPanel.TabIndex = 3;
             // 
             // cardCreatedAlert
             // 
@@ -180,42 +180,42 @@
             this.createCardBtn.UseVisualStyleBackColor = true;
             this.createCardBtn.Click += new System.EventHandler(this.createCardBtn_Click);
             // 
-            // materialSingleLineTextField2
+            // newCardBack
             // 
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "Back";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(46, 112);
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(596, 23);
-            this.materialSingleLineTextField2.TabIndex = 0;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.newCardBack.Depth = 0;
+            this.newCardBack.Hint = "Back";
+            this.newCardBack.Location = new System.Drawing.Point(46, 112);
+            this.newCardBack.MouseState = MaterialSkin.MouseState.HOVER;
+            this.newCardBack.Name = "newCardBack";
+            this.newCardBack.PasswordChar = '\0';
+            this.newCardBack.SelectedText = "";
+            this.newCardBack.SelectionLength = 0;
+            this.newCardBack.SelectionStart = 0;
+            this.newCardBack.Size = new System.Drawing.Size(596, 23);
+            this.newCardBack.TabIndex = 0;
+            this.newCardBack.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField1
+            // newCardFront
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.materialSingleLineTextField1.Hint = "Front";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(46, 49);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(596, 23);
-            this.materialSingleLineTextField1.TabIndex = 0;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.newCardFront.Depth = 0;
+            this.newCardFront.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.newCardFront.Hint = "Front";
+            this.newCardFront.Location = new System.Drawing.Point(46, 49);
+            this.newCardFront.MouseState = MaterialSkin.MouseState.HOVER;
+            this.newCardFront.Name = "newCardFront";
+            this.newCardFront.PasswordChar = '\0';
+            this.newCardFront.SelectedText = "";
+            this.newCardFront.SelectionLength = 0;
+            this.newCardFront.SelectionStart = 0;
+            this.newCardFront.Size = new System.Drawing.Size(596, 23);
+            this.newCardFront.TabIndex = 0;
+            this.newCardFront.UseSystemPasswordChar = false;
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
             this.tabPage3.Controls.Add(this.deleteGroupBtn);
-            this.tabPage3.Controls.Add(this.flowLayoutPanel3);
+            this.tabPage3.Controls.Add(this.groupPanel);
             this.tabPage3.Controls.Add(this.createGroupBtn);
             this.tabPage3.Controls.Add(this.createGroupInput);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -241,15 +241,15 @@
             this.deleteGroupBtn.UseVisualStyleBackColor = true;
             this.deleteGroupBtn.Click += new System.EventHandler(this.deleteGroupBtn_Click);
             // 
-            // flowLayoutPanel3
+            // groupPanel
             // 
-            this.flowLayoutPanel3.AutoScroll = true;
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(99, 148);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(3);
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(408, 143);
-            this.flowLayoutPanel3.TabIndex = 4;
+            this.groupPanel.AutoScroll = true;
+            this.groupPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.groupPanel.Location = new System.Drawing.Point(99, 148);
+            this.groupPanel.Name = "groupPanel";
+            this.groupPanel.Padding = new System.Windows.Forms.Padding(3);
+            this.groupPanel.Size = new System.Drawing.Size(408, 143);
+            this.groupPanel.TabIndex = 4;
             // 
             // createGroupBtn
             // 
@@ -321,21 +321,21 @@
         private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField newCardBack;
+        private MaterialSkin.Controls.MaterialSingleLineTextField newCardFront;
         private MaterialSkin.Controls.MaterialRaisedButton createCardBtn;
         private System.Windows.Forms.TabPage tabPage3;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
         private System.Windows.Forms.PictureBox cardCreatedAlert;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel createCardPanel;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel readCardPanel;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
         private MaterialSkin.Controls.MaterialFlatButton createGroupBtn;
         private MaterialSkin.Controls.MaterialSingleLineTextField createGroupInput;
         private MaterialSkin.Controls.MaterialFlatButton deleteGroupBtn;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel groupPanel;
     }
 }
 
