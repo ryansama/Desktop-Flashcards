@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using System.IO;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Desktop_Flashcards
 {
@@ -18,7 +20,7 @@ namespace Desktop_Flashcards
 
         string cardDir = "";//full path of the 'cards' directory
         IList<Card>[] collection;//the collection of card groups and their cards 
-
+        bool continueButtonClicked = false;
         //Material skin from Ignace Maes
         private readonly MaterialSkinManager materialSkinManager;
 
@@ -205,7 +207,7 @@ namespace Desktop_Flashcards
         {
             MaterialRadioButton radioBtn;
             string[] cardGroups = Directory.GetDirectories(this.cardDir);
-
+           
             for (int i = 0; i < cardGroups.Length; i++)
             {
                 radioBtn = new MaterialRadioButton();
@@ -352,5 +354,94 @@ namespace Desktop_Flashcards
                 }
             }
         }
+
+        private void readCardBtn_Click(object sender, EventArgs e)
+        {
+            string panel = getSelectedRadioButton(readCardPanel);
+            if (panel == null) 
+            {
+                return;
+            }
+            string cardGroupPath = Directory.GetCurrentDirectory() +"\\cards\\" + panel;
+            int counter = 0;
+            //find the correct IList in the collections array
+
+            while (counter < collection.Length - 1)
+            {
+                if (collection[counter].Count == 0)
+                {
+                    //Console.WriteLine("The list at index " + counter + " is empty.");
+                }
+                else
+                {
+                    //Console.WriteLine("The list at index " + counter + " is NOT empty.");
+                    IList<Card> temp = collection[counter];
+                    if (temp[0].belongsTo.Equals(cardGroupPath))
+                    {
+                        Console.WriteLine("Found the matching card group.");
+                        break;
+                    }
+                }
+
+                counter++;
+            }
+
+            IList<Card> toRead = collection[counter];//the card group to be read
+
+            panel1.Visible = true;
+            SolidBrush s = new SolidBrush(Color.Black);
+            Graphics g = panel1.CreateGraphics();
+            FontFamily ff = new FontFamily("Calibri");
+            System.Drawing.Font font = new System.Drawing.Font(ff, 15);
+            int numCards = toRead.Count;//number of cards in the group
+            Random rand = new Random();//random number generator
+
+            int read = 0;//number of cards that have been read
+            while (read < numCards)
+            {
+                Card card = toRead[rand.Next(0, numCards)];
+                if (card.viewed == false)
+                {
+                    g.DrawString(card.sideOne, font, s, new PointF(50, 50));
+                   
+                    while (true)
+                    {
+                        Application.DoEvents();
+                        if (continueButtonClicked)
+                        {
+                            break;
+                        }
+                    }
+                    continueButtonClicked = false;                                          
+                    g.DrawString(card.sideTwo, font, s, new PointF(50, 150));
+                    card.setToViewed();
+                    while (true)
+                    {
+                        Application.DoEvents();
+                        if (continueButtonClicked)
+                        {
+                            break;
+                        }
+                    }
+                    continueButtonClicked = false;
+                    read++;
+
+                    g.Clear(Color.White);
+                }
+
+            }
+            for (int i = 0; i < numCards;i++)
+            {
+                toRead[i].viewed = false;
+            }
+            panel1.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            continueButtonClicked = true;
+        }
+  
+        
     }
 }
