@@ -344,7 +344,11 @@ namespace Desktop_Flashcards
             string cardGroupPath = Directory.GetCurrentDirectory() +"\\cards\\" + panel;
             int counter = 0;
             //find the correct IList in the collections array
-
+            if (Directory.GetFiles(cardGroupPath).Length == 0)
+            {
+                MessageBox.Show("The Card Group is empty");
+                return;
+            }
             while (counter < collection.Length - 1)
             {
                 if (collection[counter].Count == 0)
