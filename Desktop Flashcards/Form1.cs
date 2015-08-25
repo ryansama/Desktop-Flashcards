@@ -370,7 +370,7 @@ namespace Desktop_Flashcards
             {
                 if (collection[counter].Count == 0)
                 {
-                    //Console.WriteLine("The list at index " + counter + " is empty.");
+                    MessageBox.Show("This Card Group is Empty");
                 }
                 else
                 {
