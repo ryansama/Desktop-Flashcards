@@ -300,7 +300,7 @@ namespace Desktop_Flashcards
                 //make the card group
                 Directory.CreateDirectory(tempPath);
                 MessageBox.Show(newGroup + " was created!");
-                repopulateAllPanels();//update radio button panels
+                repopulateAllPanels();
             }
         }
 
