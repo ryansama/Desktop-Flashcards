@@ -40,7 +40,9 @@ namespace Desktop_Flashcards
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Green600, Primary.Green700, Primary.Green200, Accent.Red100, TextShade.WHITE);
 
             //populate the radio button panel under 'Create' tab
-            populatePanel(flowLayoutPanel2);
+            populatePanel(readCardPanel);
+            populatePanel(createCardPanel);
+            populatePanel(groupPanel);
 
         }
 
@@ -148,6 +150,28 @@ namespace Desktop_Flashcards
         }
 
         /// <summary>
+        /// Returns the string of the selected radio
+        /// button in a given FlowLayoutPanel.
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <returns></returns>
+        private string getSelectedRadioButton(FlowLayoutPanel panel)
+        {
+            var checkedButton = panel.Controls.OfType<MaterialRadioButton>().FirstOrDefault(r => r.Checked);
+            try
+            {
+                return checkedButton.Text;
+            }
+            catch (NullReferenceException e)
+            {
+                return null;
+            }
+            finally { }
+
+            
+        }
+
+        /// <summary>
         /// Method to start events when switching between tabs.
         /// </summary>
         /// <param name="sender"></param>
@@ -155,22 +179,22 @@ namespace Desktop_Flashcards
         private void materialTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            int tab = materialTabControl1.SelectedIndex;
-            switch (tab)
-            {
-                case 0:
-                    populatePanel(flowLayoutPanel1);//update panel when entering the 'create' tab
-                    break;
-                case 1:
-                    populatePanel(flowLayoutPanel2);//update panel when entering the 'read' tab
-                    break;
-                case 2:
-                    populatePanel(flowLayoutPanel3);
-                    break;
-                default:
-                    MessageBox.Show("Default switch case");
-                    break;
-            }
+            //int tab = materialTabControl1.SelectedIndex;
+            //switch (tab)
+            //{
+            //    case 0:
+            //        populatePanel(createCardPanel);//update panel when entering the 'create' tab
+            //        break;
+            //    case 1:
+            //        populatePanel(readCardPanel);//update panel when entering the 'read' tab
+            //        break;
+            //    case 2:
+            //        populatePanel(createGroupPanel);
+            //        break;
+            //    default:
+            //        MessageBox.Show("Default switch case");
+            //        break;
+            //}
             
         }
 
@@ -179,36 +203,74 @@ namespace Desktop_Flashcards
         /// </summary>
         private void populatePanel(FlowLayoutPanel panel)
         {
-            MaterialRadioButton test;
+            MaterialRadioButton radioBtn;
+            string[] cardGroups = Directory.GetDirectories(this.cardDir);
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < cardGroups.Length; i++)
             {
-                test = new MaterialRadioButton();
-                test.AutoSize = true;
-                test.Depth = 0;
-                test.Font = new System.Drawing.Font("Roboto", 10F);
-                test.Location = new System.Drawing.Point(3, 3);
-                test.Margin = new System.Windows.Forms.Padding(0);
-                test.MouseLocation = new System.Drawing.Point(-1, -1);
-                test.MouseState = MaterialSkin.MouseState.HOVER;
-                test.Name = "testRadiobutton";
-                test.Ripple = true;
-                test.Size = new System.Drawing.Size(163, 30);
-                test.TabIndex = 0;
-                test.TabStop = true;
-                test.Text = "Card Group " + i.ToString() + "\t";
-                test.UseVisualStyleBackColor = true;
-                panel.Controls.Add(test);
+                radioBtn = new MaterialRadioButton();
+                radioBtn.AutoSize = true;
+                radioBtn.Depth = 0;
+                radioBtn.Font = new System.Drawing.Font("Roboto", 10F);
+                radioBtn.Location = new System.Drawing.Point(3, 3);
+                radioBtn.Margin = new System.Windows.Forms.Padding(0);
+                radioBtn.MouseLocation = new System.Drawing.Point(-1, -1);
+                radioBtn.MouseState = MaterialSkin.MouseState.HOVER;
+                radioBtn.Name = "radioBtnRadiobutton";
+                radioBtn.Ripple = true;
+                radioBtn.Size = new System.Drawing.Size(163, 30);
+                radioBtn.TabIndex = 0;
+                radioBtn.TabStop = true;
+                cardGroups[i] = cardGroups[i].Replace(this.cardDir, "");
+                radioBtn.Text = cardGroups[i];
+                radioBtn.UseVisualStyleBackColor = true;
+                panel.Controls.Add(radioBtn);
             }
         }
 
         /// <summary>
-        /// Events when the 'Create Card' button is clicked.
+        /// Events when the 'Create Card' button is clicked. The functionality
+        /// from the console application's 'createCard()' method is included here.
         /// </summary>
         private void createCardBtn_Click(object sender, EventArgs e)
         {
-            //TODO add fade-in and fade-out effect to the alert
-            cardCreatedAlert.Show();
+            //get selected radio button
+            string group = getSelectedRadioButton(createCardPanel);
+            string groupPath;
+
+            //error checking for selected radio button and input fields
+            if (group == null
+                || String.IsNullOrWhiteSpace(newCardFront.Text)
+                || String.IsNullOrWhiteSpace(newCardBack.Text))
+            {
+                MessageBox.Show("Please enter valid input for the card and select a card group.");//TODO create material design pop-up
+                newCardFront.Clear();
+                newCardBack.Clear();
+            }
+            else
+            {
+                groupPath = this.cardDir + group;
+                int counter = 1;
+
+                //get user's 'front' and 'back' input
+                string[] cardContent = { "", "" };
+                cardContent[0] = newCardFront.Text;
+                cardContent[1] = newCardBack.Text;
+
+                //finds an integer that is not already used by another file
+                while (File.Exists(groupPath + "\\" + counter + ".txt"))
+                {
+                    counter++;
+                }
+                
+                //create and write to new text file
+                System.IO.File.WriteAllLines(groupPath + "\\" + counter + ".txt", cardContent);
+
+                //TODO add small delay here for material animation to occur
+                MessageBox.Show("New card was created!");//TODO create material design pop-up
+                newCardFront.Clear();
+                newCardBack.Clear();
+            }
         }
 
         /// <summary>
@@ -226,18 +288,17 @@ namespace Desktop_Flashcards
             //error checking
             if (String.IsNullOrWhiteSpace(newGroup))
             {
-                //TODO create material design pop-up
-                MessageBox.Show("Please enter a valid card group name.");
-            }else if (Directory.Exists(tempPath))
+                MessageBox.Show("Please enter a valid card group name.");//TODO create material design pop-up
+            }
+            else if (Directory.Exists(tempPath))
             {
-                //TODO create material design pop-up
-                MessageBox.Show("This card group already exists!");
+                MessageBox.Show("This card group already exists!");//TODO create material design pop-up
             }
             else
             {
                 //make the card group
                 Directory.CreateDirectory(tempPath);
-                MessageBox.Show(newGroup + " was created!");
+                MessageBox.Show(newGroup + " was created!");//TODO create material design pop-up
             }
         }
 
