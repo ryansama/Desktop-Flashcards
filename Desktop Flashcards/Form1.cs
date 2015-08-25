@@ -167,7 +167,6 @@ namespace Desktop_Flashcards
                 return null;
             }
             finally { }
-
             
         }
 
@@ -260,7 +259,7 @@ namespace Desktop_Flashcards
                 || String.IsNullOrWhiteSpace(newCardFront.Text)
                 || String.IsNullOrWhiteSpace(newCardBack.Text))
             {
-                MessageBox.Show("Please enter valid input for the card and select a card group.");//TODO create material design pop-up
+                MessageBox.Show("Please enter valid input for the card and select a card group.");
                 newCardFront.Clear();
                 newCardBack.Clear();
             }
@@ -284,7 +283,7 @@ namespace Desktop_Flashcards
                 System.IO.File.WriteAllLines(groupPath + "\\" + counter + ".txt", cardContent);
 
                 //TODO add small delay here for material animation to occur
-                MessageBox.Show("New card was created!");//TODO create material design pop-up
+                MessageBox.Show("New card was created!");
                 newCardFront.Clear();
                 newCardBack.Clear();
             }
@@ -305,17 +304,17 @@ namespace Desktop_Flashcards
             //error checking
             if (String.IsNullOrWhiteSpace(newGroup))
             {
-                MessageBox.Show("Please enter a valid card group name.");//TODO create material design pop-up
+                MessageBox.Show("Please enter a valid card group name.");
             }
             else if (Directory.Exists(tempPath))
             {
-                MessageBox.Show("This card group already exists!");//TODO create material design pop-up
+                MessageBox.Show("This card group already exists!");
             }
             else
             {
                 //make the card group
                 Directory.CreateDirectory(tempPath);
-                MessageBox.Show(newGroup + " was created!");//TODO create material design pop-up
+                MessageBox.Show(newGroup + " was created!");
                 repopulateAllPanels();//update radio button panels
             }
         }
@@ -325,7 +324,92 @@ namespace Desktop_Flashcards
         /// </summary>
         private void deleteGroupBtn_Click(object sender, EventArgs e)
         {
+            string group = getSelectedRadioButton(groupPanel);
+            string groupPath;
+            if (group == null)
+            {
+                MessageBox.Show("Please select a group to delete!");
+            }
+            else
+            {
+                groupPath = this.cardDir + group;
+                DialogResult result = MessageBox.Show("Are you sure you want to delete " + group + "? All cards within the group will be lost.",
+                                                      "WARNING",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Warning);
+                if(result == DialogResult.Yes)
+                {
+                    Directory.Delete(groupPath, true);
+                    MessageBox.Show(group + " was deleted.");
+                    repopulateAllPanels();
+                }
+                else
+                {
+                    MessageBox.Show("Nothing was deleted.",
+                                    "Notification",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                }
+            }
 
+            //Console.Clear();
+            //Console.WriteLine("Which card group would you like to delete?");
+            //displayCardGroups(false);
+            //string folderName = Console.ReadLine();
+            //string path = getUserDirectory() + folderName;
+            //bool deleted = true;
+
+            //try
+            //{
+            //    // Determine whether the directory exists. 
+            //    if (Directory.Exists(path) && !String.IsNullOrWhiteSpace(folderName))
+            //    {
+            //        Console.ForegroundColor = ConsoleColor.Red;
+            //        Console.Write("WARNING: All cards within the group will be lost. ");
+            //        Console.ResetColor();
+            //        Console.Write("Are you sure you want to delete this card group? (y/n)");
+            //        string choice = Console.ReadLine();
+            //        if (choice.Equals("y") || choice.Equals("Y"))
+            //        {
+            //            Directory.Delete(path, true);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("No card groups were deleted.");
+            //            return;
+            //        }
+
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("The specified card group does not exist.");
+            //        deleted = false;
+            //    }
+
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine("The process failed: {0}", e.ToString());
+            //}
+            //finally { }
+
+            //if (deleted)
+            //{
+            //    //inform user about successful card group deletion
+            //    Console.ForegroundColor = ConsoleColor.Green;
+            //    Console.Write("The card group ");
+            //    Console.ForegroundColor = ConsoleColor.Cyan;
+            //    Console.Write(folderName);
+            //    Console.ForegroundColor = ConsoleColor.Green;
+            //    Console.Write(" was deleted succesfully. Press any key to continue.");
+            //    Console.ResetColor();
+            //    Console.ReadKey();
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Nothing was deleted. Press any key to contiune.");
+            //    Console.ReadKey();
+            //}
         }
     }
 }
