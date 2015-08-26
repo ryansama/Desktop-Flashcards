@@ -63,9 +63,9 @@ namespace Desktop_Flashcards.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card {
+        internal static System.Drawing.Bitmap materialCard {
             get {
-                object obj = ResourceManager.GetObject("card", resourceCulture);
+                object obj = ResourceManager.GetObject("materialCard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

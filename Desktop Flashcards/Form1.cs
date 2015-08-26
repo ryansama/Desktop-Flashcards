@@ -374,7 +374,10 @@ namespace Desktop_Flashcards
 
                 counter++;
             }
-            Image image = Image.FromFile(Directory.GetCurrentDirectory() + "\\card.png");
+
+            materialTabSelector1.Visible = false;
+            //Image image = Image.FromFile(Directory.GetCurrentDirectory() + "\\card.png");
+            Image image = Properties.Resources.materialCard;
             Rectangle rect = new Rectangle(5,10, 700, 345);
             IList<Card> toRead = collection[counter];//the card group to be read
             panel1.Visible = true;
@@ -422,13 +425,17 @@ namespace Desktop_Flashcards
             {
                 toRead[i].viewed = false;
             }
+
             panel1.Visible = false;
+            materialTabSelector1.Visible = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             continueButtonClicked = true;
         }
+
+        
 
     }
 }
