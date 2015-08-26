@@ -50,6 +50,7 @@
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.deletePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -194,18 +195,18 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(222, 161);
+            this.materialLabel1.Location = new System.Drawing.Point(188, 161);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(158, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(210, 19);
             this.materialLabel1.TabIndex = 0;
-            this.materialLabel1.Text = "SELECT CARD GROUP";
+            this.materialLabel1.Text = "Select a card group to modify.";
             // 
             // createCardPanel
             // 
             this.createCardPanel.AutoScroll = true;
             this.createCardPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.createCardPanel.Location = new System.Drawing.Point(46, 183);
+            this.createCardPanel.Location = new System.Drawing.Point(45, 183);
             this.createCardPanel.Name = "createCardPanel";
             this.createCardPanel.Padding = new System.Windows.Forms.Padding(3);
             this.createCardPanel.Size = new System.Drawing.Size(511, 143);
@@ -245,6 +246,7 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.materialLabel4);
             this.tabPage3.Controls.Add(this.deleteGroupBtn);
             this.tabPage3.Controls.Add(this.groupPanel);
             this.tabPage3.Controls.Add(this.createGroupBtn);
@@ -276,7 +278,7 @@
             // 
             this.groupPanel.AutoScroll = true;
             this.groupPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.groupPanel.Location = new System.Drawing.Point(99, 148);
+            this.groupPanel.Location = new System.Drawing.Point(94, 148);
             this.groupPanel.Name = "groupPanel";
             this.groupPanel.Padding = new System.Windows.Forms.Padding(3);
             this.groupPanel.Size = new System.Drawing.Size(408, 143);
@@ -340,10 +342,10 @@
             // 
             this.deletePanel.AutoScroll = true;
             this.deletePanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.deletePanel.Location = new System.Drawing.Point(150, 95);
+            this.deletePanel.Location = new System.Drawing.Point(82, 86);
             this.deletePanel.Name = "deletePanel";
             this.deletePanel.Padding = new System.Windows.Forms.Padding(3);
-            this.deletePanel.Size = new System.Drawing.Size(408, 143);
+            this.deletePanel.Size = new System.Drawing.Size(544, 182);
             this.deletePanel.TabIndex = 5;
             // 
             // materialLabel3
@@ -358,6 +360,19 @@
             this.materialLabel3.Size = new System.Drawing.Size(193, 19);
             this.materialLabel3.TabIndex = 6;
             this.materialLabel3.Text = "Select a card group to read.";
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(193, 126);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(210, 19);
+            this.materialLabel4.TabIndex = 6;
+            this.materialLabel4.Text = "Select a card group to modify.";
             // 
             // Form1
             // 
@@ -408,6 +423,7 @@
         private System.Windows.Forms.TabPage tabPage4;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private System.Windows.Forms.FlowLayoutPanel deletePanel;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
     }
 }
 

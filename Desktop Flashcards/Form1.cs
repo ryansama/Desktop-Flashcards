@@ -40,7 +40,7 @@ namespace Desktop_Flashcards
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Green600, Primary.Green700, Primary.Green200, Accent.Red100, TextShade.WHITE);       
 
-            //populate the radio button panel under 'Create' tab
+            //populate the radio button panel under each tab
             populatePanel(readCardPanel);
 
             if (Directory.GetDirectories(this.cardDir).Length == 0)
@@ -56,7 +56,20 @@ namespace Desktop_Flashcards
 
             populatePanel(createCardPanel);
             populatePanel(groupPanel);
-            
+
+            populatePanel(deletePanel);
+
+            if (Directory.GetDirectories(this.cardDir).Length == 0)
+            {
+                materialLabel3.Text = "Get started by creating a new card group under 'Groups'.";
+                materialLabel3.Location = new Point(165, 50);
+            }
+            else
+            {
+                materialLabel3.Text = "Select a card group to modify.";
+                materialLabel3.Location = new Point(258, 50);
+            }
+
 
         }
 
@@ -226,6 +239,19 @@ namespace Desktop_Flashcards
 
             groupPanel.Controls.Clear();
             populatePanel(groupPanel);
+
+            deletePanel.Controls.Clear();
+            populatePanel(deletePanel);
+            if (Directory.GetDirectories(this.cardDir).Length == 0)
+            {
+                materialLabel3.Text = "Get started by creating a new card group under 'Groups'.";
+                materialLabel3.Location = new Point(165, 50);
+            }
+            else
+            {
+                materialLabel3.Text = "Select a card group to modify.";
+                materialLabel3.Location = new Point(258, 50);
+            }
         }
 
         /// <summary>
@@ -349,7 +375,7 @@ namespace Desktop_Flashcards
             int counter = 0;
             if (Directory.GetFiles(cardGroupPath).Length == 0)
             {
-                MessageBox.Show("The Card Group is empty");
+                MessageBox.Show("This card group is empty. Create a new card under 'Create'.");
                 return;
             }
 
