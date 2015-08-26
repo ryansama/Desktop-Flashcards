@@ -46,12 +46,16 @@
             this.groupPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.createGroupBtn = new MaterialSkin.Controls.MaterialFlatButton();
             this.createGroupInput = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.deletePanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -59,6 +63,7 @@
             this.materialTabControl1.Controls.Add(this.tabPage1);
             this.materialTabControl1.Controls.Add(this.tabPage2);
             this.materialTabControl1.Controls.Add(this.tabPage3);
+            this.materialTabControl1.Controls.Add(this.tabPage4);
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Location = new System.Drawing.Point(12, 115);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -308,6 +313,17 @@
             this.createGroupInput.TabIndex = 0;
             this.createGroupInput.UseSystemPasswordChar = false;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.materialLabel3);
+            this.tabPage4.Controls.Add(this.deletePanel);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(709, 332);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Delete";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // materialTabSelector1
             // 
             this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
@@ -319,6 +335,29 @@
             this.materialTabSelector1.Size = new System.Drawing.Size(749, 45);
             this.materialTabSelector1.TabIndex = 0;
             this.materialTabSelector1.Text = "\\";
+            // 
+            // deletePanel
+            // 
+            this.deletePanel.AutoScroll = true;
+            this.deletePanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.deletePanel.Location = new System.Drawing.Point(150, 95);
+            this.deletePanel.Name = "deletePanel";
+            this.deletePanel.Padding = new System.Windows.Forms.Padding(3);
+            this.deletePanel.Size = new System.Drawing.Size(408, 143);
+            this.deletePanel.TabIndex = 5;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(257, 61);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(193, 19);
+            this.materialLabel3.TabIndex = 6;
+            this.materialLabel3.Text = "Select a card group to read.";
             // 
             // Form1
             // 
@@ -340,6 +379,8 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -364,6 +405,9 @@
         private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialFlatButton createCardBtn;
         private MaterialSkin.Controls.MaterialFlatButton continueBtn;
+        private System.Windows.Forms.TabPage tabPage4;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.FlowLayoutPanel deletePanel;
     }
 }
 
