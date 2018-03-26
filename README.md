@@ -3,17 +3,17 @@
 
 SharpCards is a desktop app built with C# and Windows Forms. It allows the user to create, store, and read two-sided flashcards. The user can organize their cards using groups. The code that runs the processes within the applciation are located in [Form1.cs](https://github.com/ryansama/SharpCards/blob/master/Desktop%20Flashcards/Form1.cs).
 
-####Usage
+#### Usage
 
 1. Download SharpCards.exe and MaterialSkin.dll [here](https://github.com/ryansama/SharpCards/releases). 
 
 2. Run SharpCards.exe!
 
-####The Console Application
+#### The Console Application
 
 Prior to building this Windows Forms program, we built [a skeleton console application](https://github.com/ryansama/Flashcards-Console-App) to test functionality, data structures and efficiency. 
 
-####Material Design
+#### Material Design
 
 We are interested in building this desktop app with components of [Google's Material Design](https://www.google.com/design/spec/material-design/introduction.html). A big thanks goes to [Ignace Maes](https://github.com/IgnaceMaes) who created a [Material Design skin for WinForms](https://github.com/IgnaceMaes/MaterialSkin), which we are using in the app. 
 
