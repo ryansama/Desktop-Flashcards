@@ -17,7 +17,7 @@ Prior to building this Windows Forms program, we built [a skeleton console appli
 
 We are interested in building this desktop app with components of [Google's Material Design](https://www.google.com/design/spec/material-design/introduction.html). A big thanks goes to [Ignace Maes](https://github.com/IgnaceMaes) who created a [Material Design skin for WinForms](https://github.com/IgnaceMaes/MaterialSkin), which we are using in the app. 
 
-####Screenshots
+#### Screenshots
 
 ![screenshot0](https://github.com/ryansama/SharpCards/blob/master/screenshots/screenshot0.PNG)
 
